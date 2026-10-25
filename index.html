@@ -1,420 +1,1179 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="dark">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Water | Digital Profile</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            metallic: '#dfb768',
-                        },
-                        aqua: {
-                            400: '#22d3ee',
-                            500: '#06b6d4',
-                            600: '#0891b2',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Readex Pro', 'sans-serif'],
-                        cinzel: ['Cinzel', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: 'Readex Pro', sans-serif; }
-        .font-cinzel { font-family: 'Cinzel', serif; }
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(223, 183, 104, 0.2);
-        }
-        .glass-light {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #bf953f 0%, #fc6 25%, #dfb768 50%, #aa771c 75%, #fbf5b7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-border {
-            border-image: linear-gradient(to right, #bf953f, #fbf5b7, #aa771c) 1;
-        }
-        .card-3d {
-            transition: transform 0.1s ease, box-shadow 0.1s ease;
-            transform-style: preserve-3d;
-        }
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(223, 183, 104, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.4); }
-        }
-        .pulse-glow { animation: pulseGlow 4s infinite; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>GOLDEN WATER | أ. شادي ربيع</title>
+  <meta name="description" content="Golden Water - Water Chemical Treatment, Water Service Lab, Water Pumps & Filters. إدارة أ. شادي ربيع" />
+  <meta name="theme-color" content="#050811" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================
+       THEME VARIABLES (DARK & LIGHT MODE)
+       ========================================== */
+    :root[data-theme="dark"] {
+      --bg-primary: #04070f;
+      --bg-secondary: #0a1122;
+      --card-bg: rgba(12, 20, 38, 0.72);
+      --card-bg-hover: rgba(18, 30, 56, 0.88);
+      --card-border: rgba(212, 175, 55, 0.24);
+      --card-border-hover: rgba(245, 208, 97, 0.6);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --gold-light: #fef08a;
+      --gold-mid: #d4af37;
+      --gold-dark: #9a6f1a;
+      --aqua-glow: #00f2fe;
+      --aqua-deep: #0284c7;
+      --metal-card-bg: linear-gradient(135deg, #0f172a 0%, #172036 45%, #1f1912 100%);
+      --metal-inner-bg: rgba(4, 7, 15, 0.68);
+      --shadow-main: 0 20px 50px rgba(0, 0, 0, 0.75);
+      --badge-bg: rgba(15, 23, 42, 0.85);
+      --orb-opacity: 0.25;
+    }
+
+    :root[data-theme="light"] {
+      --bg-primary: #f1f5f9;
+      --bg-secondary: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-bg-hover: rgba(255, 255, 255, 0.98);
+      --card-border: rgba(180, 134, 24, 0.28);
+      --card-border-hover: rgba(180, 134, 24, 0.75);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --gold-light: #b48618;
+      --gold-mid: #9a6f1a;
+      --gold-dark: #714e0b;
+      --aqua-glow: #0284c7;
+      --aqua-deep: #0369a1;
+      --metal-card-bg: linear-gradient(135deg, #1e293b 0%, #0f172a 55%, #292014 100%);
+      --metal-inner-bg: rgba(15, 23, 42, 0.75);
+      --shadow-main: 0 18px 40px rgba(15, 23, 42, 0.12);
+      --badge-bg: rgba(255, 255, 255, 0.92);
+      --orb-opacity: 0.15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Readex Pro', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1), color 0.45s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 100px;
+    }
+
+    /* Ambient Background Orbs & Canvas */
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(95px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: var(--orb-opacity);
+      transition: opacity 0.5s ease;
+    }
+    .orb-gold {
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, #d4af37, transparent 70%);
+      top: -80px;
+      right: -80px;
+      animation: floatOrb 10s ease-in-out infinite alternate;
+    }
+    .orb-aqua {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #00f2fe, transparent 70%);
+      bottom: 8%;
+      left: -90px;
+      animation: floatOrb 12s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-25px, 30px) scale(1.12); }
+    }
+
+    /* Main Wrapper */
+    .profile-wrapper {
+      width: 100%;
+      max-width: 460px;
+      padding: 18px 18px 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==========================================
+       TOP UTILITY BAR
+       ========================================== */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-size: 0.75rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-main);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 0.65; }
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-main);
+    }
+
+    .icon-btn:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-2px);
+    }
+
+    .icon-btn svg {
+      width: 18px;
+      height: 18px;
+      color: #d4af37;
+    }
+
+    /* ==========================================
+       HERO CARD & ANIMATED EMBLEM
+       ========================================== */
+    .hero-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 30px;
+      padding: 30px 20px 26px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-main);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, #00f2fe, #d4af37, transparent);
+    }
+
+    .logo-container {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 18px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-glow {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #d4af37, #00f2fe, #d4af37, #9a6f1a, #d4af37);
+      filter: blur(14px);
+      opacity: 0.45;
+      animation: spinSlow 10s linear infinite;
+    }
+
+    .emblem-svg {
+      width: 126px;
+      height: 126px;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5));
+    }
+
+    .spin-ring {
+      transform-origin: 60px 60px;
+      animation: spinSlow 18s linear infinite;
+    }
+
+    .spin-gear {
+      transform-origin: 60px 60px;
+      animation: spinReverse 24s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes spinReverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    .brand-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.05rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #fff3b0 0%, #d4af37 35%, #f59e0b 65%, #fff3b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 24px rgba(212, 175, 55, 0.25);
+      margin-bottom: 6px;
+    }
+
+    :root[data-theme="light"] .brand-title {
+      background: linear-gradient(135deg, #714e0b 0%, #b48618 45%, #854d0e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .manager-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 16px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #eab308;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    :root[data-theme="light"] .manager-badge {
+      color: #854d0e;
+      background: rgba(212, 175, 55, 0.16);
+    }
+
+    /* ==========================================
+       3 CONCISE SPECIALIZATION PILLS UNDER LOGO
+       ========================================== */
+    .specs-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .spec-pill {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      background: var(--badge-bg);
+      border: 1px solid var(--card-border);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text-main);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .spec-pill:hover {
+      transform: scale(1.02);
+      border-color: var(--card-border-hover);
+    }
+
+    .spec-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4af37, #00f2fe);
+      box-shadow: 0 0 8px #00f2fe;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================
+       QUICK ACTION ROW (CALL & VCARD)
+       ========================================== */
+    .action-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary-gold {
+      border: none;
+      border-radius: 18px;
+      padding: 15px 16px;
+      background: linear-gradient(135deg, #facc15 0%, #d4af37 50%, #b48618 100%);
+      color: #04070f;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary-gold:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.07);
+      box-shadow: 0 14px 30px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-glass-call {
+      border-radius: 18px;
+      padding: 15px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-decoration: none;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-main);
+      transition: all 0.25s ease;
+    }
+
+    .btn-glass-call:hover {
+      border-color: #00f2fe;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================
+       ENGLISH-ONLY SOCIAL MEDIA BUTTONS
+       ========================================== */
+    .social-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .social-btn {
+      direction: ltr;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      text-decoration: none;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-main);
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      background: var(--card-bg-hover);
+      border-color: var(--card-border-hover);
+    }
+
+    .social-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .social-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.28s ease;
+    }
+
+    .social-btn:hover .social-icon-box {
+      transform: scale(1.1) rotate(-4deg);
+    }
+
+    .social-icon-box svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .whatsapp-box {
+      background: rgba(16, 185, 129, 0.16);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .facebook-box {
+      background: rgba(59, 130, 246, 0.16);
+      color: #3b82f6;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .instagram-box {
+      background: rgba(236, 72, 153, 0.16);
+      color: #ec4899;
+      border: 1px solid rgba(236, 72, 153, 0.35);
+    }
+
+    .social-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .social-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(212, 175, 55, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      transition: transform 0.25s ease;
+    }
+
+    .social-btn:hover .social-arrow {
+      transform: translateX(4px);
+    }
+
+    /* ==========================================
+       VIP 3D METALLIC PAYMENT CARD
+       ========================================== */
+    .vip-card-wrapper {
+      perspective: 1100px;
+      margin-bottom: 16px;
+    }
+
+    .vip-metal-card {
+      background: var(--metal-card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 26px;
+      padding: 22px 20px;
+      color: #f8fafc;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.65);
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+
+    .card-glare {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 243, 176, 0.22), transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .vip-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .vip-chip-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .emv-chip {
+      width: 44px;
+      height: 34px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #9a6f1a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    .vip-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: #fef08a;
+      font-weight: 700;
+    }
+
+    .vip-owner {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .vip-owner-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .vip-owner-sub {
+      font-size: 0.72rem;
+      color: #cbd5e1;
+    }
+
+    .pay-row {
+      background: var(--metal-inner-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .pay-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .pay-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .pay-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #00f2fe;
+      letter-spacing: 0.04em;
+    }
+
+    .pay-number {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      direction: ltr;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #fef08a;
+      letter-spacing: 0.06em;
+    }
+
+    .copy-chip-btn {
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      background: rgba(212, 175, 55, 0.16);
+      color: #fef08a;
+      border-radius: 12px;
+      padding: 8px 13px;
+      font-family: inherit;
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .copy-chip-btn:hover {
+      background: #d4af37;
+      color: #04070f;
+    }
+
+    /* ==========================================
+       FLOATING TAPIO PILL
+       ========================================== */
+    .tapio-float {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      width: max-content;
+      max-width: 92vw;
+    }
+
+    .tapio-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      background: rgba(8, 13, 26, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #f8fafc;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+      transition: all 0.25s ease;
+    }
+
+    .tapio-link:hover {
+      border-color: #00f2fe;
+      transform: translateY(-2px);
+    }
+
+    .tapio-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d4af37, #00f2fe);
+    }
+
+    /* ==========================================
+       TOAST & QR MODAL
+       ========================================== */
+    .toast-box {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, -120px);
+      z-index: 100;
+      background: linear-gradient(135deg, #facc15, #d4af37);
+      color: #04070f;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+    }
+
+    .toast-box.active {
+      transform: translate(-50%, 0);
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 15, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 340px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border-hover);
+      border-radius: 28px;
+      padding: 26px 22px;
+      text-align: center;
+      position: relative;
+      box-shadow: var(--shadow-main);
+    }
+
+    .qr-frame {
+      background: #ffffff;
+      padding: 14px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 16px 0;
+    }
+  </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between relative overflow-x-hidden transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100 bg-slate-50 text-slate-900">
+<body>
 
-    <!-- Interactive Ambient Background Canvas -->
-    <canvas id="bgCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+  <!-- Ambient Glow Orbs & Interactive Particles -->
+  <div class="ambient-orb orb-gold"></div>
+  <div class="ambient-orb orb-aqua"></div>
+  <canvas id="particleCanvas"></canvas>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="fixed top-5 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 px-6 py-3 rounded-2xl shadow-2xl font-bold flex items-center gap-3 border border-amber-300">
-        <i class="fa-solid fa-circle-check text-lg"></i>
-        <span id="toastMsg">تم النسخ بنجاح!</span>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-box">تم النسخ بنجاح!</div>
+
+  <!-- QR Modal -->
+  <div id="qrModal" class="modal-backdrop" onclick="if(event.target === this) closeQR()">
+    <div class="modal-card">
+      <h3 class="brand-title" style="font-size: 1.4rem;">GOLDEN WATER</h3>
+      <p style="font-size: 0.78rem; color: var(--text-muted);">امسح الكود لمشاركة بطاقة الأعمال الرقمية</p>
+      <div class="qr-frame">
+        <img id="qrImg" src="" alt="QR Code" width="180" height="180" style="display:block;" />
+      </div>
+      <div style="display:flex; gap:10px;">
+        <button onclick="copyShareUrl()" class="btn-primary-gold" style="flex:1; padding:12px;">نسخ الرابط</button>
+        <button onclick="closeQR()" class="btn-glass-call" style="padding:12px 18px; cursor:pointer;">إغلاق</button>
+      </div>
     </div>
+  </div>
 
-    <!-- QR Code Modal -->
-    <div id="qrModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
-        <div class="glass-dark dark:glass-dark glass-light p-6 rounded-3xl max-w-sm w-full text-center relative border border-amber-500/40 shadow-2xl">
-            <button onclick="toggleQRModal()" class="absolute top-4 left-4 text-slate-400 hover:text-amber-400 text-xl"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="font-cinzel text-xl font-bold gold-gradient-text mb-2">QR Code مباشر</h3>
-            <p class="text-xs text-slate-400 mb-6">امسح الكود لفتح البروفايل مباشرة</p>
-            <div class="bg-white p-4 rounded-2xl inline-block shadow-inner mb-4">
-                <img id="qrImage" src="" alt="QR Code" class="w-48 h-48 mx-auto">
-            </div>
-            <button onclick="copyProfileLink()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 text-slate-950 font-bold hover:brightness-110 transition shadow-lg">
-                <i class="fa-solid fa-copy ml-2"></i> نسخ رابط الصفحة
-            </button>
-        </div>
-    </div>
+  <main class="profile-wrapper">
+    <!-- Top Utility Bar (Status + Dark/Light Mode + QR) -->
+    <header class="top-bar">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Golden Water</span>
+      </div>
 
-    <!-- Top Utility Bar -->
-    <div class="w-full max-w-md p-4 flex justify-between items-center z-10">
-        <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full glass-dark dark:glass-dark glass-light flex items-center justify-center text-amber-400 shadow-lg hover:scale-110 transition">
-            <i id="themeIcon" class="fa-solid fa-moon"></i>
-        </button>
-        <div class="flex items-center gap-2">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse ml-1.5"></span> متاح للخدمة
-            </span>
-            <button onclick="toggleQRModal()" class="w-10 h-10 rounded-full glass-dark dark:glass-dark glass-light flex items-center justify-center text-amber-400 shadow-lg hover:scale-110 transition">
-                <i class="fa-solid fa-qrcode"></i>
-            </button>
-        </div>
-    </div>
-
-    <!-- Main Container -->
-    <main class="w-full max-w-md px-4 pb-12 flex flex-col items-center z-10">
-        
-        <!-- Profile Header / Logo -->
-        <div class="relative mb-6 text-center group">
-            <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-500 via-cyan-400 to-amber-600 opacity-75 blur-md group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
-            <div class="relative w-32 h-32 rounded-full glass-dark dark:glass-dark glass-light p-1.5 flex items-center justify-center shadow-2xl">
-                <div class="w-full h-full rounded-full bg-slate-900 flex flex-col items-center justify-center border border-amber-500/50 overflow-hidden relative">
-                    <!-- Custom SVG Water & Chemistry Emblem -->
-                    <svg class="w-16 h-16 text-amber-400 drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Company & Management Name -->
-        <h1 class="font-cinzel text-3xl font-extrabold gold-gradient-text tracking-wider text-center mb-1">GOLDEN WATER</h1>
-        <p class="text-xs uppercase tracking-[0.3em] text-cyan-400 font-semibold mb-3">Water Treatment & Laboratory Services</p>
-        <p class="text-sm font-medium text-amber-400/90 mb-5">إدارة / أ. شادي ربيع</p>
-
-        <!-- Concise Specialization Badges Under Logo -->
-        <div class="w-full flex flex-wrap justify-center gap-2 mb-6">
-            <span class="px-3 py-1.5 rounded-xl text-xs font-medium glass-dark dark:glass-dark glass-light border border-amber-500/30 text-amber-300 shadow-sm">
-                <i class="fa-solid fa-flask ml-1 text-cyan-400"></i> Water Chemical Treatment
-            </span>
-            <span class="px-3 py-1.5 rounded-xl text-xs font-medium glass-dark dark:glass-dark glass-light border border-amber-500/30 text-amber-300 shadow-sm">
-                <i class="fa-solid fa-microscope ml-1 text-cyan-400"></i> Water Service Lab
-            </span>
-            <span class="px-3 py-1.5 rounded-xl text-xs font-medium glass-dark dark:glass-dark glass-light border border-amber-500/30 text-amber-300 shadow-sm">
-                <i class="fa-solid fa-gear ml-1 text-cyan-400"></i> Water Pumps & Filters
-            </span>
-        </div>
-
-        <!-- VIP vCard Save Button -->
-        <button onclick="downloadVCard()" class="w-full mb-6 py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-slate-950 font-bold shadow-xl hover:brightness-110 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3 border border-amber-200">
-            <i class="fa-solid fa-user-plus text-xl"></i>
-            <span class="text-base tracking-wide">حفظ جهة الاتصال (VIP vCard)</span>
+      <div class="top-actions">
+        <button id="themeBtn" class="icon-btn" onclick="toggleTheme()" aria-label="تبديل المظهر">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <span id="themeLabel">Light</span>
         </button>
 
-        <!-- Direct Contact & Social Links (English Names Only) -->
-        <div class="w-full space-y-3.5 mb-8">
-            <!-- WhatsApp -->
-            <a href="https://wa.me/201098097071?text=سلام عليكم يا أستاذ شادي، عجبني بروفايل Golden Water وعاوز استفسر عن خدمات معالجة المياه" target="_blank" class="w-full glass-dark dark:glass-dark glass-light p-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-amber-400 transition group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-brands fa-whatsapp"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">WhatsApp</h4>
-                        <p class="text-xs text-slate-400">+20 109 809 7071</p>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400 group-hover:-translate-x-1 transition"></i>
-            </a>
+        <button class="icon-btn" onclick="openQR()" aria-label="رمز QR">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+            <path d="M14 14h3v3h-3zM17 17h4v4h-4zM14 19h2"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
 
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/share/19VJWvTPWQ/" target="_blank" class="w-full glass-dark dark:glass-dark glass-light p-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-amber-400 transition group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">Facebook</h4>
-                        <p class="text-xs text-slate-400">Golden Water Page</p>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400 group-hover:-translate-x-1 transition"></i>
-            </a>
+    <!-- Hero Section with Animated Water + Lab + Gear Emblem -->
+    <section class="hero-card">
+      <div class="logo-container">
+        <div class="logo-glow"></div>
+        <svg class="emblem-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFF3B0" />
+              <stop offset="45%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#85581A" />
+            </linearGradient>
+            <linearGradient id="aquaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00F2FE" />
+              <stop offset="100%" stop-color="#0284C7" />
+            </linearGradient>
+          </defs>
 
-            <!-- Instagram -->
-            <a href="https://www.facebook.com/share/19VJWvTPWQ/" target="_blank" class="w-full glass-dark dark:glass-dark glass-light p-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-amber-400 transition group">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-brands fa-instagram"></i>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-sm">Instagram</h4>
-                        <p class="text-xs text-slate-400">Golden Water Profile</p>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400 group-hover:-translate-x-1 transition"></i>
-            </a>
+          <!-- Outer Rotating Dashed Luxury Ring -->
+          <circle class="spin-ring" cx="60" cy="60" r="55" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.75" />
+
+          <!-- Subtle Rotating Engineering Gear Ring -->
+          <g class="spin-gear" opacity="0.35">
+            <circle cx="60" cy="60" r="46" stroke="url(#goldGrad)" stroke-width="4" stroke-dasharray="6 9" />
+          </g>
+
+          <!-- Inner Core Shield -->
+          <circle cx="60" cy="60" r="42" fill="#060c1a" stroke="url(#goldGrad)" stroke-width="2" />
+
+          <!-- Central Sculpted Golden Water Drop -->
+          <path d="M60 24C60 24 38 51 38 68C38 80.1503 47.8497 90 60 90C72.1503 90 82 80.1503 82 68C82 51 60 24 60 24Z"
+                fill="url(#goldGrad)" opacity="0.18" />
+          <path d="M60 24C60 24 38 51 38 68C38 80.1503 47.8497 90 60 90C72.1503 90 82 80.1503 82 68C82 51 60 24 60 24Z"
+                stroke="url(#goldGrad)" stroke-width="2.8" stroke-linejoin="round" />
+
+          <!-- Pure Aqua Wave Inside Drop -->
+          <path d="M43 68C49 63 55 73 61 68C67 63 72 71 77 67"
+                stroke="url(#aquaGrad)" stroke-width="2.6" stroke-linecap="round" />
+          <path d="M46 76C52 72 58 80 64 76C69 72 72 77 75 75"
+                stroke="url(#aquaGrad)" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+        </svg>
+      </div>
+
+      <h1 class="brand-title">GOLDEN WATER</h1>
+      <div class="manager-badge">
+        <span>إدارة أ / شادي ربيع</span>
+      </div>
+
+      <!-- Concise 3 Specializations Directly Under Logo -->
+      <div class="specs-wrap">
+        <div class="spec-pill">
+          <span class="spec-dot"></span>
+          <span>Water Chemical Treatment</span>
         </div>
+        <div class="spec-pill">
+          <span class="spec-dot"></span>
+          <span>Water Service Lab</span>
+        </div>
+        <div class="spec-pill">
+          <span class="spec-dot"></span>
+          <span>Water Pumps &amp; Filters</span>
+        </div>
+      </div>
+    </section>
 
-        <!-- VIP Payment & InstaPay Section (3D Holographic Card) -->
-        <div class="w-full mb-8">
-            <h3 class="font-cinzel text-sm font-bold tracking-wider text-amber-400 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-shield-halved"></i> الحسابات البنكية ومعاملات الدفع
-            </h3>
-            
-            <div id="payCard" class="card-3d relative w-full rounded-3xl p-6 bg-gradient-to-br from-slate-900 via-slate-900 to-amber-950/40 border border-amber-500/40 shadow-2xl overflow-hidden pulse-glow">
-                <!-- Card Background Glow Elements -->
-                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
-                
-                <div class="flex justify-between items-start mb-6">
-                    <div>
-                        <span class="text-[10px] tracking-widest text-amber-400 font-bold uppercase block mb-1">Authorized Account</span>
-                        <h4 class="font-cinzel text-lg font-bold text-white">شادي ربيع</h4>
-                    </div>
-                    <div class="w-12 h-9 rounded-lg bg-gradient-to-tr from-amber-300 via-yellow-400 to-amber-500 p-0.5 opacity-90 shadow-md">
-                        <div class="w-full h-full rounded-[6px] bg-slate-950/40 flex items-center justify-center">
-                            <i class="fa-solid fa-microchip text-amber-200 text-xs"></i>
-                        </div>
-                    </div>
-                </div>
+    <!-- Primary Call & Save Contact Row -->
+    <div class="action-grid">
+      <a href="tel:+201098097071" class="btn-glass-call">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        <span>اتصال مباشر</span>
+      </a>
 
-                <!-- InstaPay & Wallet Details -->
-                <div class="space-y-4">
-                    <div class="flex items-center justify-between bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800">
-                        <div>
-                            <span class="text-[10px] text-slate-400 block">InstaPay / IPN</span>
-                            <span id="instapayText" class="text-sm font-mono font-bold text-amber-300">01098097071@instapay</span>
-                        </div>
-                        <button onclick="copyToClipboard('01098097071@instapay', 'تم نسخ حساب InstaPay!')" class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center hover:bg-amber-500 hover:text-slate-950 transition">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
+      <button onclick="downloadVCard()" class="btn-primary-gold">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+        <span>حفظ جهة الاتصال</span>
+      </button>
+    </div>
 
-                    <div class="flex items-center justify-between bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800">
-                        <div>
-                            <span class="text-[10px] text-slate-400 block">Cash Wallet (محفظة موبايل)</span>
-                            <span id="walletText" class="text-sm font-mono font-bold text-cyan-300">01098097071</span>
-                        </div>
-                        <button onclick="copyToClipboard('01098097071', 'تم نسخ رقم المحفظة!')" class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition">
-                            <i class="fa-regular fa-copy"></i>
-                        </button>
-                    </div>
-                </div>
+    <!-- Social Media Buttons (Platform Name in English ONLY) -->
+    <section class="social-list">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/201098097071" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <div class="social-left">
+          <div class="social-icon-box whatsapp-box">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.125.556 4.119 1.529 5.847l-1.529 5.585 5.736-1.505c1.678.918 3.604 1.441 5.654 1.441 6.627 0 12-5.373 12-12s-5.373-12-11.39-11.368z"/>
+            </svg>
+          </div>
+          <span class="social-name">WhatsApp</span>
+        </div>
+        <div class="social-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/19VJWvTPWQ/" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <div class="social-left">
+          <div class="social-icon-box facebook-box">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </div>
+          <span class="social-name">Facebook</span>
+        </div>
+        <div class="social-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.facebook.com/share/19VJWvTPWQ/" target="_blank" rel="noopener noreferrer" class="social-btn">
+        <div class="social-left">
+          <div class="social-icon-box instagram-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <span class="social-name">Instagram</span>
+        </div>
+        <div class="social-arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
+      </a>
+    </section>
+
+    <!-- VIP 3D Metallic Payment Card (InstaPay & Wallet) -->
+    <section class="vip-card-wrapper">
+      <div id="vipCard" class="vip-metal-card">
+        <div id="cardGlare" class="card-glare"></div>
+
+        <div class="vip-header">
+          <div class="vip-chip-group">
+            <div class="emv-chip">
+              <svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="#422006" stroke-width="1.2">
+                <rect x="1" y="1" width="24" height="18" rx="3"/>
+                <line x1="9" y1="1" x2="9" y2="19"/>
+                <line x1="17" y1="1" x2="17" y2="19"/>
+                <line x1="1" y1="10" x2="25" y2="10"/>
+              </svg>
             </div>
+            <span class="vip-label">VIP PAYMENT</span>
+          </div>
+
+          <!-- Contactless NFC Icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fef08a" stroke-width="2" stroke-linecap="round">
+            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+          </svg>
         </div>
 
-    </main>
+        <div class="vip-owner">
+          <div>
+            <div class="vip-owner-sub">اسم صاحب الحساب</div>
+            <div class="vip-owner-name">شادي ربيع</div>
+          </div>
+          <span style="font-family:'Cinzel',serif; font-size:0.75rem; color:#00f2fe;">GOLDEN WATER</span>
+        </div>
 
-    <!-- Footer Tapio Badge -->
-    <footer class="w-full py-4 text-center z-10 border-t border-amber-500/20 glass-dark dark:glass-dark glass-light mt-auto">
-        <a href="https://wa.me/201284424161?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D8%AC%D8%A8%D9%86%D9%8A%20Tapio%20%D9%88%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%88%D8%A7%D8%AD%D8%AF%20%D9%84%D9%8A%D8%A7%D8%88%2C%20%D9%85%D9%85%D9%83%D9%86%20%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F" target="_blank" class="text-xs text-slate-400 hover:text-amber-400 transition flex items-center justify-center gap-1.5 font-medium">
-            <span>عجبك Tapio؟ اطلب بطاقتك الذكية الآن</span>
-            <i class="fa-solid fa-arrow-up-left text-[10px]"></i>
-        </a>
-    </footer>
+        <!-- InstaPay Row -->
+        <div class="pay-row">
+          <div class="pay-info">
+            <span class="pay-badge">INSTAPAY</span>
+            <span class="pay-number">01098097071</span>
+          </div>
+          <button class="copy-chip-btn" onclick="copyText('01098097071', 'تم نسخ رقم InstaPay (شادي ربيع)')">
+            <span>نسخ</span>
+          </button>
+        </div>
 
-    <!-- JavaScript Logic -->
-    <script>
-        // Set QR Code image URL automatically based on current page URL
-        const currentUrl = window.location.href;
-        document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(currentUrl)}&color=0f172a&bgcolor=ffffff`;
+        <!-- Mobile Wallet Row -->
+        <div class="pay-row">
+          <div class="pay-info">
+            <span class="pay-badge" style="color:#facc15;">CASH WALLET (محفظة إلكترونية)</span>
+            <span class="pay-number">01098097071</span>
+          </div>
+          <button class="copy-chip-btn" onclick="copyText('01098097071', 'تم نسخ رقم المحفظة (شادي ربيع)')">
+            <span>نسخ</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        // Dark/Light Mode Toggle with localStorage
-        const htmlElement = document.documentElement;
-        const themeIcon = document.getElementById('themeIcon');
-        
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                htmlElement.classList.remove('dark');
-                themeIcon.className = 'fa-solid fa-sun';
-            } else {
-                htmlElement.classList.add('dark');
-                themeIcon.className = 'fa-solid fa-moon';
-            }
-        }
-        initTheme();
+  <!-- Floating Tapio CTA Pill -->
+  <div class="tapio-float">
+    <a href="https://wa.me/201284424161?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D8%A7%D8%AC%D8%A8%D9%86%D9%8A%20Tapio%20%D9%88%D8%B9%D8%A7%D9%88%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20%D9%88%D8%A7%D8%AD%D8%AF%20%D9%84%D9%8A%D8%A7%D8%8C%20%D9%85%D9%85%D9%83%D9%86%20%D8%A7%D9%84%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%D8%9F"
+       target="_blank" rel="noopener noreferrer" class="tapio-link">
+      <span class="tapio-dot"></span>
+      <span>عجبك Tapio؟ اطلب واحد لنفسك من واتساب</span>
+    </a>
+  </div>
 
-        function toggleDarkMode() {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-                themeIcon.className = 'fa-solid fa-sun';
-            } else {
-                htmlElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.className = 'fa-solid fa-moon';
-            }
-        }
+  <script>
+    // 1. Theme Switcher (Dark / Light Mode)
+    const rootEl = document.documentElement;
+    const themeLabel = document.getElementById('themeLabel');
+    const themeIcon = document.getElementById('themeIcon');
 
-        // QR Modal Toggle
-        function toggleQRModal() {
-            const modal = document.getElementById('qrModal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
+    function applyTheme(theme) {
+      rootEl.setAttribute('data-theme', theme);
+      localStorage.setItem('gw_theme', theme);
+      if (theme === 'light') {
+        themeLabel.textContent = 'Dark';
+        themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+      } else {
+        themeLabel.textContent = 'Light';
+        themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>';
+      }
+    }
 
-        // Copy text helper with toast alert
-        function copyToClipboard(text, message) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast(message);
-            });
-        }
+    const savedTheme = localStorage.getItem('gw_theme') || 'dark';
+    applyTheme(savedTheme);
 
-        function copyProfileLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                showToast('تم نسخ رابط الصفحة بنجاح!');
-                toggleQRModal();
-            });
-        }
+    function toggleTheme() {
+      const current = rootEl.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
 
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMsg').innerText = msg;
-            toast.style.transform = 'translateY(0)';
-            toast.style.opacity = '1';
-            setTimeout(() => {
-                toast.style.transform = 'translateY(-80px)';
-                toast.style.opacity = '0';
-            }, 3000);
-        }
+    // 2. Toast Notification & Clipboard
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('active');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('active');
+      }, 2800);
+    }
 
-        // Generate and download vCard (.vcf) file
-        function downloadVCard() {
-            const vcardData = `BEGIN:VCARD
-VERSION:3.0
-FN:شادي ربيع - Golden Water
-N:ربيع;شادي;;;
-ORG:Golden Water
-TITLE:Water Treatment & Laboratory Services
-TEL;TYPE=WORK,VOICE:+201098097071
-EMAIL;TYPE=PREF,INTERNET:info@goldenwater.com
-URL:${window.location.href}
-END:VCARD`;
+    function copyText(value, message) {
+      navigator.clipboard.writeText(value).then(() => {
+        showToast(message);
+      });
+    }
 
-            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Shady_Rabie_Golden_Water.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-            showToast('تم تحميل كارت جهة الاتصال (vCard) بنجاح!');
-        }
+    // 3. QR Code Modal
+    function openQR() {
+      const url = window.location.href;
+      document.getElementById('qrImg').src = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(url);
+      document.getElementById('qrModal').classList.add('open');
+    }
 
-        // 3D Card Tilt Effect on Mouse/Touch
-        const payCard = document.getElementById('payCard');
-        payCard.addEventListener('mousemove', (e) => {
-            const rect = payCard.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            payCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-        payCard.addEventListener('mouseleave', () => {
-            payCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-        });
+    function closeQR() {
+      document.getElementById('qrModal').classList.remove('open');
+    }
 
-        // Ambient Floating Particles Canvas Animation
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-        let particlesArray = [];
+    function copyShareUrl() {
+      copyText(window.location.href, 'تم نسخ رابط البروفايل بنجاح!');
+      closeQR();
+    }
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+    // 4. Download VIP vCard (.vcf)
+    function downloadVCard() {
+      const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'FN:Golden Water - شادي ربيع',
+        'N:ربيع;شادي;;;',
+        'ORG:Golden Water',
+        'TITLE:Water Chemical Treatment | Water Service Lab | Water Pumps & Filters',
+        'TEL;TYPE=CELL,VOICE:+201098097071',
+        'URL:' + window.location.href,
+        'END:VCARD'
+      ].join('\n');
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-                this.color = Math.random() > 0.5 ? 'rgba(234, 179, 8, 0.5)' : 'rgba(6, 182, 212, 0.5)';
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Golden-Water-Shady-Rabie.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('تم تحميل جهة الاتصال بنجاح!');
+    }
 
-        function initParticles() {
-            particlesArray = [];
-            const count = Math.floor((canvas.width * canvas.height) / 15000);
-            for (let i = 0; i < count; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        initParticles();
+    // 5. Interactive 3D Holographic Tilt on VIP Card
+    const vipCard = document.getElementById('vipCard');
+    const cardGlare = document.getElementById('cardGlare');
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particlesArray.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-    </script>
+    function handleTilt(clientX, clientY) {
+      const rect = vipCard.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      vipCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      cardGlare.style.opacity = '1';
+      cardGlare.style.background = `radial-gradient(circle at ${(x / rect.width) * 100}% ${(y / rect.height) * 100}%, rgba(255, 243, 176, 0.28), transparent 60%)`;
+    }
+
+    vipCard.addEventListener('mousemove', (e) => handleTilt(e.clientX, e.clientY));
+    vipCard.addEventListener('mouseleave', () => {
+      vipCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      cardGlare.style.opacity = '0';
+    });
+
+    // 6. Ambient Floating Water & Gold Particles
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 32; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2.2 + 0.6,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: -Math.random() * 0.5 - 0.15,
+        isGold: Math.random() > 0.45
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p) => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.x < 0) p.x = canvas.width;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.isGold ? 'rgba(212, 175, 55, 0.45)' : 'rgba(0, 242, 254, 0.4)';
+        ctx.fill();
+      });
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+  </script>
 </body>
 </html>
